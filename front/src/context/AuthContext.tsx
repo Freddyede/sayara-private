@@ -6,7 +6,7 @@ const AuthProvider = ({ children }: any) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("site") || "");
   const loginAction = async (data: any) => {
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch(process.env.API_URL + '/login', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const AuthProvider = ({ children }: any) => {
     }
   };
   const registerAction = async (data: any) => {
-    const response = await fetch('http://localhost:3000/register', {
+    const response = await fetch(process.env.API_URL + '/register', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
